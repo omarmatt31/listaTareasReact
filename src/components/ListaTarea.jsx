@@ -4,11 +4,14 @@ import ItemTarea from './ItemTarea'
 
 const ListaTarea = ({tareas, borrarTarea}) => {
     return (
-        <ListGroup>
-            {
-                tareas.map((item, indice)=><ItemTarea key={indice} nombreTarea={item} borrarTarea={borrarTarea}></ItemTarea>)
-            }
-        </ListGroup>
+        <section className="d-flex justify-content-center">
+            <ListGroup className="w-75">
+                {
+                    tareas.map((item, indice)=><ItemTarea key={indice} nombreTarea={item} borrarTarea={borrarTarea}></ItemTarea>)
+                }
+            </ListGroup>
+        </section>
+
     );
 };
 
