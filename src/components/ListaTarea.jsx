@@ -1,13 +1,41 @@
 import { ListGroup } from "react-bootstrap";
 import ItemTarea from './ItemTarea'
+import { useState, useEffect } from "react";
+import { leerTareas } from "../helpers/queries";
 
 
-const ListaTarea = ({tareas, borrarTarea}) => {
+const ListaTarea = ({borrarTarea}) => {
+    
+    const [listaTareas, setListaTareas] = useState([]);
+    
+    useEffect(()=>{
+        obtenerTareas()
+    }, [])
+
+    const obtenerTareas = async ()=>{
+        const respuesta = await leerTareas()
+        if(respuesta.status === 200){
+            console.log("encontro cosas")
+            const datos = await respuesta.json()
+            console.log(datos)
+            setListaTareas(datos)
+        }else{
+            console.info('Ocurrio un error al buscar las tareas')
+        }
+    }
+
+    console.log(listaTareas)
     return (
         <section className="d-flex justify-content-center">
             <ListGroup className="w-75">
                 {
-                    tareas.map((item, indice)=><ItemTarea key={indice} nombreTarea={item} borrarTarea={borrarTarea}></ItemTarea>)
+                    listaTareas && listaTareas.length > 0 ? (
+                        listaTareas.map((item) => (
+                            <ItemTarea key={item._id} nombreTarea={item} borrarTarea={borrarTarea}></ItemTarea>
+                        ))
+                    ) : (
+                        <p className="text-center">No hay tareas</p>
+                    )
                 }
             </ListGroup>
         </section>

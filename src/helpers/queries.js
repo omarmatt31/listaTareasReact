@@ -4,6 +4,7 @@ const urltareas = import.meta.env.VITE_API_TAREAS
 export const leerTareas = async()=>{
     try{
         const respuesta = await fetch(urltareas)
+        console.log(respuesta)
         return respuesta
     }catch(error){
         console.error(error);
