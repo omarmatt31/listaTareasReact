@@ -1,12 +1,53 @@
-# React + Vite
+# 📝 Lista de Tareas Interactiva - Gestor de Actividades
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Autor:** Omar Mattos ✨  
+Una aplicación web completa para gestionar tus tareas diarias con almacenamiento en una Base de Datos. ¡Organiza tu productividad de manera sencilla y eficiente! 🚀
 
-Currently, two official plugins are available:
+## 🌟 Funcionalidades principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 📌 Gestión de tareas
+- ✅ Añadir nuevas tareas
+- 🗑️ Eliminar tareas
 
-## Expanding the ESLint configuration
+### 🎨 Experiencia de usuario
+- 📱 Diseño 100% responsive
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## 🛠️ Stack tecnológico
+
+```plaintext
+Frontend:
+- HTML5 semántico
+- CSS3 (Flexbox + Grid)
+- JavaScript ES6+
+```
+
+## 🚀 Instalación y uso
+
+1. Clona el repositorio:
+```bash
+git clone https://github.com/omarmatt31/listaTareas.git
+```
+
+2. Abre el repositorio con VisualStudio:
+
+
+3. Comienza a organizarte:
+- ✏️ Escribe tu tarea y presiona Agregar Tarea
+- 🗑️ Icono para eliminar
+
+## 💡 Casos de uso ideales
+
+- 🏢 Gestión de proyectos personales
+- 🛒 Listas de compras
+- 📚 Organización académica
+- 🏋️‍♂️ Rutinas de ejercicio
+- 🧑‍💻 Seguimiento de bugs
+
+## 🤝 Guía para contribuir
+
+## 📜 Licencia
+
+MIT License © 2023 [Omar Mattos](https://github.com/omarmatt31).  
+
+---
