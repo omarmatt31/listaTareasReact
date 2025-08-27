@@ -2,10 +2,9 @@ import {Form, Button} from "react-bootstrap";
 import ListaTarea from "./ListaTarea";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form"
-import { leerTareas } from "../helpers/queries";
+import { crearTarea } from "../helpers/queries";
 
 const FormularioTarea = () => {
-
 
 
     const {
@@ -15,11 +14,11 @@ const FormularioTarea = () => {
     formState: { errors },
     } = useForm()
 
-    const agregarTareas= (data)=>{
-        console.log("aqui debería guardar la tarea")
-        //tomar la tarea que esta en el state tarea y guardarla en el state tareas (array)
-        // tareas.push(tarea)
-        //limpiar formulario
+    const agregarTareas= async (data)=>{
+        const respuesta = await crearTarea(data)
+        if(respuesta.status !== 201){
+            console.log('No se creo la tarea')
+        }
         reset()
     }
 
@@ -30,7 +29,7 @@ const FormularioTarea = () => {
         <section>
             <Form onSubmit={handleSubmit(agregarTareas)}>
                 <Form.Group className="mb-2 d-flex">
-                    <Form.Control type="text" placeholder="Ingresa una tarea" onChange={(e)=> setTarea(e.target.value)} {...register('inputTarea', {required:'La tarea es un dato obligatorio',
+                    <Form.Control type="text" placeholder="Ingresa una tarea" onChange={(e)=> setTarea(e.target.value)} {...register('tarea', {required:'La tarea es un dato obligatorio',
                         minLength: { value: 3, message: 'La tarea debe tener 3 caracteres como minimo'},
                         maxLength: { value: 50, message: 'La tarea debe tener como maximo 50 caracteres'},
                         pattern: { value:/^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,50}$/, message: 'La tarea debe contener caracteres alfanumericos, mayusculas o minusculas'}

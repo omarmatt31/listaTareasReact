@@ -15,16 +15,12 @@ const ListaTarea = ({borrarTarea}) => {
     const obtenerTareas = async ()=>{
         const respuesta = await leerTareas()
         if(respuesta.status === 200){
-            console.log("encontro cosas")
             const datos = await respuesta.json()
-            console.log(datos)
             setListaTareas(datos)
         }else{
             console.info('Ocurrio un error al buscar las tareas')
         }
     }
-
-    console.log(listaTareas)
     return (
         <section className="d-flex justify-content-center">
             <ListGroup className="w-75">
