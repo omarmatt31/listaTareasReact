@@ -1,11 +1,9 @@
 import {Form, Button} from "react-bootstrap";
 import ListaTarea from "./ListaTarea";
-import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form"
 import { crearTarea } from "../helpers/queries";
 
 const FormularioTarea = () => {
-
 
     const {
     register,
@@ -22,9 +20,7 @@ const FormularioTarea = () => {
         reset()
     }
 
-    const borrarTarea = (nombreTarea) =>{
 
-    }
     return (
         <section>
             <Form onSubmit={handleSubmit(agregarTareas)}>
@@ -38,7 +34,7 @@ const FormularioTarea = () => {
                     </Form.Group>
                 <Form.Text className="text-danger">{errors.inputTarea?.message}</Form.Text>
             </Form>
-            <ListaTarea borrarTarea={borrarTarea}></ListaTarea>
+            <ListaTarea></ListaTarea>
         </section>
     );
 };
