@@ -4,10 +4,8 @@ import { useState, useEffect } from "react";
 import { leerTareas } from "../helpers/queries";
 
 
-const ListaTarea = ({borrarTarea}) => {
-    
-    const [listaTareas, setListaTareas] = useState([]);
-    
+const ListaTarea = ({listaTareas, setListaTareas}) => {
+
     useEffect(()=>{
         obtenerTareas()
     }, [])
@@ -27,7 +25,7 @@ const ListaTarea = ({borrarTarea}) => {
                 {
                     listaTareas && listaTareas.length > 0 ? (
                         listaTareas.map((item) => (
-                            <ItemTarea key={item._id} nombreTarea={item} borrarTarea={borrarTarea}></ItemTarea>
+                            <ItemTarea key={item._id} nombreTarea={item} setListaTareas={setListaTareas}></ItemTarea>
                         ))
                     ) : (
                         <p className="text-center">No hay tareas</p>

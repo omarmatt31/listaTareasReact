@@ -1,9 +1,11 @@
 import {Form, Button} from "react-bootstrap";
 import ListaTarea from "./ListaTarea";
 import { useForm } from "react-hook-form"
-import { crearTarea } from "../helpers/queries";
+import { crearTarea, leerTareas } from "../helpers/queries";
+import { useState} from "react";
 
 const FormularioTarea = () => {
+    const [listaTareas, setListaTareas] = useState([]);
 
     const {
     register,
@@ -14,8 +16,10 @@ const FormularioTarea = () => {
 
     const agregarTareas= async (data)=>{
         const respuesta = await crearTarea(data)
-        if(respuesta.status !== 201){
-            console.log('No se creo la tarea')
+        if(respuesta.status === 201){
+            const respuestaTareas = await leerTareas();
+            const tareasActualizadas = await respuestaTareas.json()
+            setListaTareas(tareasActualizadas)
         }
         reset()
     }
@@ -34,7 +38,7 @@ const FormularioTarea = () => {
                     </Form.Group>
                 <Form.Text className="text-danger">{errors.inputTarea?.message}</Form.Text>
             </Form>
-            <ListaTarea></ListaTarea>
+            <ListaTarea listaTareas={listaTareas} setListaTareas={setListaTareas}></ListaTarea>
         </section>
     );
 };
